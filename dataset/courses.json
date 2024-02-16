@@ -1,0 +1,112 @@
+[
+  {
+    "courseSymbol": "SWRD",
+    "courseNumber": "101",
+    "courseName": "Introduction Swordmanship",
+    "startTime": 480,
+    "description": "This course teaches you the basics of using a sword. You will learn how to hold, swing, and not hurt yourself with a sword",
+    "teacher": {
+      "firstName": "Leroy",
+      "lastName": "Jenkins"
+    }
+  },
+  {
+    "courseSymbol": "SABR",
+    "courseNumber": "101",
+    "courseName":"Introduction to Sabres",
+    "startTime": ,
+    "description": "Learn sabres like a real warrior, unlike those those weak sword users",
+    "teacher": {
+      "firstName": "Barbara",
+      "lastName": "Warror"
+    }
+  },
+  {
+    "courseSymbol": "HEAL",
+    "courseNumber": "101",
+    "courseName":"Introduction to Healing and First Aid",
+    "startTime": ,
+    "description": "Mend, Heal, and sooth, a pillar of every adventurer party. In this class you learn the basics healing and first aid.",
+    "teacher": {
+      "firstName": "Pocketius",
+      "lastName": "Healerus"
+    }
+  },
+  {
+    "courseSymbol": "ORCS",
+    "courseNumber": "102",
+    "courseName": "Intro to Orc Biology",
+    "startTime": 480,
+    "description": "Orcs,",
+    "teacher": {
+      "firstName": "Bilbo",
+      "lastName": "Baggins"
+    }
+  },
+  {
+    "courseSymbol": "TRSR",
+    "courseNumber": "230",
+    "courseName":"Classifying Treasure",
+    "startTime": 480,
+    "description": "",
+    "teacher": {
+      "firstName": "Indie",
+      "lastName": "Jones"
+    }
+  },
+  {
+    "courseSymbol": "SWRD",
+    "courseNumber": "201",
+    "courseName":"Intermediate Swordsmanship",
+    "startTime": ,
+    "description": "",
+    "teacher": {
+      "firstName": "",
+      "lastName": ""
+    }
+  },
+  {
+    "courseSymbol": "SABR",
+    "courseNumber": "201",
+    "courseName":"",
+    "startTime": ,
+    "description": "",
+    "teacher": {
+      "firstName": "",
+      "lastName": ""
+    }
+  },
+  {
+    "courseSymbol": "SUCC",
+    "courseNumber": "Effective Succubus Avoidance, and Techniques",
+    "courseName":"340",
+    "startTime": ,
+    "description": "",
+    "teacher": {
+      "firstName": "",
+      "lastName": ""
+    }
+  },
+  {
+    "courseSymbol": "",
+    "courseNumber": "",
+    "courseName":"",
+    "startTime": ,
+    "description": "",
+    "teacher": {
+      "firstName": "",
+      "lastName": ""
+    }
+  },
+  {
+    "courseSymbol": "",
+    "courseNumber": "",
+    "courseName":"",
+    "startTime": ,
+    "description": "",
+    "teacher": {
+      "firstName": "",
+      "lastName": ""
+    }
+  },  
+]
