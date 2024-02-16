@@ -1,4 +1,4 @@
-import { Course } from "../model/courses.model.js";
+import Course from "../model/courses.model.js";
 /**
  * Finds all the monsters from the database
  * @param {*} query

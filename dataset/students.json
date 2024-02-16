@@ -1,0 +1,34 @@
+[
+  {
+    "firstName": "Green",
+    "lastName": "Newbium",
+    "email": "demLordDefeater@villagemail.vil",
+    "role": "Warrior",
+    "age": 18,
+    "courses": []
+  },
+  {
+    "firstName": "Grizle",
+    "lastName": "Shoulder",
+    "email": "guard10201@southernkingdom.sk",
+    "role": "Soldier",
+    "age": 50,
+    "courses": []
+  },
+  {
+    "firstName": "Silflis",
+    "lastName": "Givur",
+    "email": "givurofsupport@supporter.sup",
+    "role": "Healer",
+    "age": 25,
+    "courses": []
+  },
+  {
+    "firstName": "Brutius",
+    "lastName": "Brute",
+    "email": "argggg@barbarianvillage.bv",
+    "role": "tank",
+    "age": 35,
+    "courses": []
+  }
+]

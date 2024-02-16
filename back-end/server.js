@@ -4,6 +4,7 @@ import morgan from "morgan";
 import dotenv from "dotenv";
 import connectDatabase from "./database/ConnectDatabase.js";
 import courses from "./routes/courses.route.js";
+import students from "./routes/students.route.js";
 dotenv.config();
 
 const app = express();
@@ -20,9 +21,10 @@ app.use(
 app.use(morgan("dev")); //console loging
 app.use(express.json()); //body parsing
 app.use(express.urlencoded({ extended: true })); //query string
-app.use("/courses", courses);
+app.use("/courses", courses); //handles any route starting with /courses
+app.use("/students", students); //handles any route starting with /students
 
-//Defaults it cant match route
+//Defaults if cant match route
 app.use((req, res) => {
   res.status(404).json({ message: "Invalid Route" });
 });
