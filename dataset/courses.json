@@ -8,7 +8,9 @@
     "teacher": {
       "firstName": "Leroy",
       "lastName": "Jenkins"
-    }
+    },
+    "capacity": 5,
+    "students": []
   },
   {
     "courseSymbol": "SABR",
@@ -19,7 +21,9 @@
     "teacher": {
       "firstName": "Barbara",
       "lastName": "Warror"
-    }
+    },
+    "capacity": 10,
+    "students": []
   },
   {
     "courseSymbol": "HEAL",
@@ -30,7 +34,9 @@
     "teacher": {
       "firstName": "Pocketius",
       "lastName": "Healerus"
-    }
+    },
+    "capacity": 3,
+    "students": []
   },
   {
     "courseSymbol": "ORCS",
@@ -41,7 +47,9 @@
     "teacher": {
       "firstName": "Bilbo",
       "lastName": "Baggins"
-    }
+    },
+    "capacity": 30,
+    "students": []
   },
   {
     "courseSymbol": "TRSR",
@@ -52,7 +60,9 @@
     "teacher": {
       "firstName": "Indie",
       "lastName": "Jones"
-    }
+    },
+    "capacity": 20,
+    "students": []
   },
   {
     "courseSymbol": "SWRD",
@@ -63,7 +73,9 @@
     "teacher": {
       "firstName": "Dracula",
       "lastName": "Mipigeon"
-    }
+    },
+    "capacity": 2,
+    "students": []
   },
   {
     "courseSymbol": "SABR",
@@ -74,7 +86,9 @@
     "teacher": {
       "firstName": "Epicius",
       "lastName": "Musculius"
-    }
+    },
+    "capacity": 10,
+    "students": []
   },
   {
     "courseSymbol": "SUCC",
@@ -85,7 +99,9 @@
     "teacher": {
       "firstName": "Bjorn",
       "lastName": "Blueyed"
-    }
+    },
+    "capacity": 10,
+    "students": []
   },
   {
     "courseSymbol": "LORD",
@@ -96,7 +112,9 @@
     "teacher": {
       "firstName": "Snooty",
       "lastName": "Babooty"
-    }
+    },
+    "capacity": 10,
+    "students": []
   },
   {
     "courseSymbol": "ISEK",
@@ -107,6 +125,8 @@
     "teacher": {
       "firstName": "Edgie",
       "lastName": "Lordiumus"
-    }
+    },
+    "capacity": 5,
+    "students": []
   }
 ]

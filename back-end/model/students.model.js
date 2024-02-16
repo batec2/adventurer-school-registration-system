@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { CourseSchema } from "./course.model";
+import { CourseSchema } from "./courses.model";
 
 const StudentSchema = new mongoose.Scheme({
   id: { type: Number, required: true },

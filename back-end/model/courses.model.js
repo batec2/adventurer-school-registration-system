@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const CourseSchema = new mongoose.Scheme({
+const CourseSchema = new mongoose.Schema({
   courseSymbol: { type: String, required: true },
   courseNumber: { type: String, required: true },
   startTime: Number,
@@ -10,6 +10,13 @@ const CourseSchema = new mongoose.Scheme({
     firstName: String,
     lastName: String,
   },
+  capacity: Number,
+  students: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "students",
+    },
+  ],
 });
 
 const Course = mongoose.model("courses", CourseSchema);
