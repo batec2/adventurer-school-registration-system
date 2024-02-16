@@ -13,8 +13,8 @@
   {
     "courseSymbol": "SABR",
     "courseNumber": "101",
-    "courseName":"Introduction to Sabres",
-    "startTime": ,
+    "courseName": "Introduction to Sabres",
+    "startTime": 480,
     "description": "Learn sabres like a real warrior, unlike those those weak sword users",
     "teacher": {
       "firstName": "Barbara",
@@ -24,8 +24,8 @@
   {
     "courseSymbol": "HEAL",
     "courseNumber": "101",
-    "courseName":"Introduction to Healing and First Aid",
-    "startTime": ,
+    "courseName": "Introduction to Healing and First Aid",
+    "startTime": 600,
     "description": "Mend, Heal, and sooth, a pillar of every adventurer party. In this class you learn the basics healing and first aid.",
     "teacher": {
       "firstName": "Pocketius",
@@ -35,9 +35,9 @@
   {
     "courseSymbol": "ORCS",
     "courseNumber": "102",
-    "courseName": "Intro to Orc Biology",
-    "startTime": 480,
-    "description": "Orcs,",
+    "courseName": "Introuction to Orc Biology",
+    "startTime": 600,
+    "description": "Orcs, Orcs, Orcs!!!!!!!",
     "teacher": {
       "firstName": "Bilbo",
       "lastName": "Baggins"
@@ -46,9 +46,9 @@
   {
     "courseSymbol": "TRSR",
     "courseNumber": "230",
-    "courseName":"Classifying Treasure",
-    "startTime": 480,
-    "description": "",
+    "courseName": "Classifying Treasure",
+    "startTime": 720,
+    "description": "Bag space is limited, to maximize you're gains in the dungeon you'll need to know the difference between a Brundle worth 100 Glish and a Gooble worth 0 Glish.",
     "teacher": {
       "firstName": "Indie",
       "lastName": "Jones"
@@ -57,56 +57,56 @@
   {
     "courseSymbol": "SWRD",
     "courseNumber": "201",
-    "courseName":"Intermediate Swordsmanship",
-    "startTime": ,
-    "description": "",
+    "courseName": "Intermediate Swordsmanship",
+    "startTime": 720,
+    "description": "Prestige, Glory, learn the intricacies of higher leave swordsmanship",
     "teacher": {
-      "firstName": "",
-      "lastName": ""
+      "firstName": "Dracula",
+      "lastName": "Mipigeon"
     }
   },
   {
     "courseSymbol": "SABR",
     "courseNumber": "201",
-    "courseName":"",
-    "startTime": ,
-    "description": "",
+    "courseName": "Sabre",
+    "startTime": 720,
+    "description": "Hack, Slice, Defeat those wetnoodle sword fools!",
     "teacher": {
-      "firstName": "",
-      "lastName": ""
+      "firstName": "Epicius",
+      "lastName": "Musculius"
     }
   },
   {
     "courseSymbol": "SUCC",
     "courseNumber": "Effective Succubus Avoidance, and Techniques",
-    "courseName":"340",
-    "startTime": ,
+    "courseName": "340",
+    "startTime": 840,
     "description": "",
     "teacher": {
-      "firstName": "",
-      "lastName": ""
+      "firstName": "Bjorn",
+      "lastName": "Blueyed"
     }
   },
   {
-    "courseSymbol": "",
-    "courseNumber": "",
-    "courseName":"",
-    "startTime": ,
-    "description": "",
+    "courseSymbol": "LORD",
+    "courseNumber": "405",
+    "courseName": "Economics of the Demon Lord",
+    "startTime": 960,
+    "description": "After the defeat of the demon lord last month, we study the potential economic effects of his defeat, and how the economies of the Western Kingdoms will be affected",
     "teacher": {
-      "firstName": "",
-      "lastName": ""
+      "firstName": "Snooty",
+      "lastName": "Babooty"
     }
   },
   {
-    "courseSymbol": "",
-    "courseNumber": "",
-    "courseName":"",
-    "startTime": ,
-    "description": "",
+    "courseSymbol": "ISEK",
+    "courseNumber": "101",
+    "courseName": "Transferee's Introduction to this World",
+    "startTime": 1080,
+    "description": "You've been transfered he from another world?, you're in luck. In this class we go over the three W's: Where you are, When you are, and Why you are.",
     "teacher": {
-      "firstName": "",
-      "lastName": ""
+      "firstName": "Edgie",
+      "lastName": "Lordiumus"
     }
-  },  
+  }
 ]
