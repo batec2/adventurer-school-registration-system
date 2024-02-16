@@ -1,0 +1,16 @@
+.courseContainer {
+  background-color: #0000005d;
+  border: rebeccapurple solid 1px;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.courseContainer:hover {
+  background-color: #9696967c;
+}
+
+.courseItemsContainer {
+  justify-content: center;
+  display: flex;
+}

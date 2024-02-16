@@ -1,0 +1,8 @@
+.courseListContainer {
+  padding: 5px;
+  border: #9b0ca588 solid 5px;
+  background-color: #00000088;
+  list-style-type: none;
+  height: 500px;
+  overflow: scroll;
+}
