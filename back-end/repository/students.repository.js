@@ -5,6 +5,7 @@ export const getStudentsFromRepository = async () => {
     const students = await Student.find();
     return students;
   } catch (err) {
-    throw new Error(`Error in fetching student: ${err}`);
+    console.log(err);
+    throw new Error(`Error in fetching student`);
   }
 };

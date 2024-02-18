@@ -10,29 +10,29 @@ export const getStudents = async (req, res) => {
   }
 };
 
-export const addCourseToStudent = async (req, res) => {
-  try {
-    res.status(200).json();
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ message: "Error getting courses" });
-  }
-};
+// export const addCourseToStudent = async (req, res) => {
+//   try {
+//     res.status(200).json();
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json({ message: "Error getting courses" });
+//   }
+// };
 
-export const removeCourseFromStudent = async (req, res) => {
-  try {
-    res.status(200).json();
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ message: "Error getting courses" });
-  }
-};
+// export const removeCourseFromStudent = async (req, res) => {
+//   try {
+//     res.status(200).json();
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json({ message: "Error getting courses" });
+//   }
+// };
 
-export const addStudent = async (req, res) => {
-  try {
-    res.status(200).json();
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ message: "Error getting courses" });
-  }
-};
+// export const addStudent = async (req, res) => {
+//   try {
+//     res.status(200).json();
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json({ message: "Error getting courses" });
+//   }
+// };

@@ -1,13 +1,18 @@
 import Course from "../Course/Course.component";
 import "./CourseList.styles.css";
 
-const CourseList = ({ courses }) => {
+const CourseList = ({ courses, studentId, handleCourseSelect }) => {
   return (
-    <ul className="courseListContainer">
+    <div className="courseListContainer">
       {courses.map((course) => (
-        <Course key={course._id} courseInfo={course}></Course>
+        <Course
+          key={course._id}
+          courseInfo={course}
+          studentId={studentId}
+          handleCourseSelect={handleCourseSelect}
+        ></Course>
       ))}
-    </ul>
+    </div>
   );
 };
 

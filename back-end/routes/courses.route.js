@@ -1,8 +1,10 @@
 import express from "express";
-import { getCourses } from "../controller/courses.controller.js";
+import { getCourses, getOneCourse } from "../controller/courses.controller.js";
 
 const router = express.Router();
 router.get("/", getCourses);
+router.get("/:id", getOneCourse);
+
 router.delete("/delete/:courseid");
 // router.post("/");
 // router.delete("/");

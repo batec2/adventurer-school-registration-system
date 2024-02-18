@@ -1,24 +1,24 @@
 import "./Course.styles.css";
-const Course = ({ courseInfo }) => {
-  const {
-    _id,
-    courseSymbol,
-    courseNumber,
-    courseName,
-    description,
-    teacher,
-    capacity,
-  } = courseInfo;
+
+const Course = ({ courseInfo, studentId, handleCourseSelect }) => {
+  const { _id, courseSymbol, courseNumber, courseName, students, capacity } =
+    courseInfo;
+
+  const checkEnrolled = () => {
+    if (students.includes(studentId)) {
+      return "Enrolled";
+    } else if (students.length < capacity) {
+      return "Open";
+    }
+    return "closed";
+  };
+
   return (
-    <li className="courseContainer">
-      <div className="courseItemsContainer">
-        <div>
-          <h1>{`${courseSymbol} ${courseNumber}`}</h1>
-          <h2>{courseName}</h2>
-        </div>
-        {/* <button>Enroll</button> */}
-      </div>
-    </li>
+    <div className="courseContainer" onClick={(e) => handleCourseSelect(_id)}>
+      <h2>{`${courseSymbol} ${courseNumber}`}</h2>
+      <p>{courseName}</p>
+      <h3>{checkEnrolled()}</h3>
+    </div>
   );
 };
 

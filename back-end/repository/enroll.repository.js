@@ -15,18 +15,29 @@ const verifyEnrollToCourse = async (courseId, studentId, session) => {
       exists: false,
       hasCourse: false,
       hasStudent: false,
-      atCapacity: false,
+      underCapacity: true,
+      noConflicts: false,
     };
     const course = await Course.findOne({ _id: courseId })
       .session(session)
       .exec();
     const student = await Student.findOne({ _id: studentId })
+      .populate("courses") //fills the information for the objectids in courses
       .session(session)
       .exec();
     result.exists = course && student;
-    result.hasStudent = course.students.includes(studentId);
-    result.hasCourse = student.courses.includes(courseId);
-    result.underCapacity = course.students.length < course.capacity;
+    if (course && student) {
+      result.hasStudent = course.students.includes(studentId);
+      result.hasCourse = student.courses.some(
+        (course) => course._id.toString() === courseId
+      );
+      result.noConflicts =
+        student.courses.filter(
+          (studCourse) => studCourse.startTime !== course.startTime
+        ) === 0;
+      result.underCapacity = course.students.length < course.capacity;
+    }
+    console.log(result);
     return result;
   } catch (err) {
     throw err;
@@ -124,24 +135,22 @@ export const enrollToCourseRepository = async (courseId, studentId) => {
   //Transaction to roll back if adding to either document fails
   //Sidenote: mongoose documentation for this is dog water
   const result = await connection.transaction(async (session) => {
-    const { exists, hasCourse, hasStudent, underCapacity } =
+    const { exists, hasCourse, hasStudent, underCapacity, noConflicts } =
       await verifyEnrollToCourse(courseId, studentId);
     let courseResult;
     let studentResult;
-    if (exists && !hasCourse && !hasStudent && underCapacity) {
+    if (exists && !hasCourse && !hasStudent && underCapacity && noConflicts) {
       courseResult = await addCourseTransaction(courseId, studentId, session);
       studentResult = await addStudentTransaction(courseId, studentId, session);
     }
     return { courseResult: courseResult, studentResult: studentResult };
   });
-  console.log(result);
   return result;
 };
 
 export const unenrollFromCourseRepository = async (courseId, studentId) => {
   const connection = mongoose.connection;
   //Transaction to roll back if adding to either document fails
-  //Sidenote: mongoose documentation for this is dog water
   const result = await connection.transaction(async (session) => {
     const { exists, hasCourse, hasStudent } = await verifyEnrollToCourse(
       courseId,

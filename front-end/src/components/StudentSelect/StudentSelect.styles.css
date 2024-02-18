@@ -1,0 +1,10 @@
+.StudentDropDown {
+  width: 200px;
+  /* height: 30px; */
+  font-size: 20px;
+  overflow: hidden;
+}
+
+optgroup {
+  font-size: 20px;
+}
