@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import connectDatabase from "./database/ConnectDatabase.js";
 import courses from "./routes/courses.route.js";
 import students from "./routes/students.route.js";
+import enroll from "./routes/enroll.route.js";
 dotenv.config();
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(
 app.use(morgan("dev")); //console loging
 app.use(express.json()); //body parsing
 app.use(express.urlencoded({ extended: true })); //query string
+app.use("/enroll", enroll); //handles any route starting with /enroll
 app.use("/courses", courses); //handles any route starting with /courses
 app.use("/students", students); //handles any route starting with /students
 

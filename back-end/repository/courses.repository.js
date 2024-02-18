@@ -1,4 +1,5 @@
 import Course from "../model/courses.model.js";
+
 /**
  * Finds all the monsters from the database
  * @param {*} query
@@ -6,8 +7,8 @@ import Course from "../model/courses.model.js";
  */
 export const getCoursesFromRepository = async () => {
   try {
-    const monsters = await Course.find();
-    return monsters;
+    const courses = await Course.find();
+    return courses;
   } catch (err) {
     throw Error("Error fetching Monsters");
   }
