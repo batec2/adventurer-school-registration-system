@@ -1,11 +1,11 @@
 import "./StudentSelect.styles.css";
 
-const StudentSelect = ({ students, handleSelect }) => {
+const StudentSelect = ({ students, handleSelect, selected }) => {
   return (
     <select
       className="StudentDropDown"
       onChange={(e) => handleSelect(e.target.value)}
-      defaultValue={-1}
+      value={selected === null ? -1 : selected}
     >
       <optgroup>
         <option value={-1}>select student</option>

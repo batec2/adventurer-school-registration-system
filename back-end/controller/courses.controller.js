@@ -15,7 +15,6 @@ export const getCourses = async (req, res) => {
 
 export const getOneCourse = async (req, res) => {
   try {
-    console.log(req.params.id);
     const course = await getOneCourseFromRepository(req.params.id);
     res.status(200).json(course);
   } catch (err) {

@@ -23,7 +23,10 @@ function App() {
         <StudentIdContext.Provider value={studentId}>
           <Routes>
             <Route path="/courses/" element={<CourseSelection />}></Route>
-            <Route path="/courses/:id" element={<CourseInfo />}></Route>
+            <Route
+              path="/courses/info/:courseId/:studentId"
+              element={<CourseInfo />}
+            ></Route>
           </Routes>
         </StudentIdContext.Provider>
       </QueryClientProvider>

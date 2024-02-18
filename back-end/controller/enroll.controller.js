@@ -6,6 +6,7 @@ import {
 export const enrollToCourse = async (req, res) => {
   try {
     const { params, body } = req;
+    console.log(params, body);
     const courseId = params.courseid;
     const studentId = body.studentid;
     const { courseResult, studentResult } = await enrollToCourseRepository(

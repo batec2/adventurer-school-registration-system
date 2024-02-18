@@ -10,7 +10,6 @@ export const getCoursesFromRepository = async () => {
 };
 
 export const getOneCourseFromRepository = async (courseId) => {
-  console.log(courseId);
   try {
     const courses = await Course.findOne({ _id: courseId });
     return courses;

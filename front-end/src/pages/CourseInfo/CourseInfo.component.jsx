@@ -1,12 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { fetchOneCourse } from "../../../query/AxiosRequests";
+import EnrollButton from "../../components/EnrollButton/EnrollButton.component";
+import useEnroll from "../../../query/useEnroll";
 const CourseInfo = () => {
-  const { id } = useParams();
+  const { courseId, studentId } = useParams();
+  const { mutateAsync } = useEnroll();
   const { data, isError, isPending, error } = useQuery({
-    queryKey: [id],
+    queryKey: [courseId],
     queryFn: fetchOneCourse,
   });
+
   if (isPending) {
     return (
       <div>
@@ -32,6 +36,25 @@ const CourseInfo = () => {
     capacity,
     students,
   } = data;
+
+  const handleEnroll = async () => {
+    try {
+      await mutateAsync({ courseId: courseId, studentId: studentId });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const findStatus = () => {
+    if (students.includes(studentId)) {
+      return "enrolled";
+    }
+    if (students.length < capacity) {
+      return "open";
+    }
+    return "closed";
+  };
+
   return (
     <div>
       <h1>{`${courseSymbol} ${courseNumber}`}</h1>
@@ -40,6 +63,10 @@ const CourseInfo = () => {
       <p>{`${startTime}`}</p>
       <p>{`${teacher}`}</p>
       <p>{`${capacity}`}</p>
+      <EnrollButton
+        status={findStatus()}
+        handleEnroll={handleEnroll}
+      ></EnrollButton>
     </div>
   );
 };

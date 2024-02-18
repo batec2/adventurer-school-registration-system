@@ -16,7 +16,9 @@ export const fetchStudents = async () => {
   return response.data;
 };
 
-export const enrollToClass = async (courseId, studentId) => {
+export const enrollToClass = async ({ courseId, studentId }) => {
+  console.log(courseId);
+  console.log(studentId);
   const response = await axios.patch(
     `http://localhost:8080/enroll/${courseId}`,
     { studentid: studentId }

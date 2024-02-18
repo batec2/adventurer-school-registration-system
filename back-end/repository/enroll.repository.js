@@ -31,15 +31,15 @@ const verifyEnrollToCourse = async (courseId, studentId, session) => {
       result.hasCourse = student.courses.some(
         (course) => course._id.toString() === courseId
       );
-      result.noConflicts =
-        student.courses.filter(
-          (studCourse) => studCourse.startTime !== course.startTime
-        ) === 0;
       result.underCapacity = course.students.length < course.capacity;
+      result.noConflicts = !student.courses.some(
+        (studCourse) => studCourse.startTime === course.startTime
+      );
     }
     console.log(result);
     return result;
   } catch (err) {
+    console.log(err);
     throw err;
   }
 };
@@ -63,6 +63,7 @@ const addStudentTransaction = async (courseId, studentId, session) => {
       .exec();
     return courseResult;
   } catch (err) {
+    console.log(err);
     throw err;
   }
 };
@@ -86,6 +87,7 @@ const addCourseTransaction = async (courseId, studentId, session) => {
       .exec();
     return studentResult;
   } catch (err) {
+    console.log(err);
     throw err;
   }
 };
@@ -103,6 +105,7 @@ const removeStudentTransaction = async (courseId, studentId, session) => {
       .exec();
     return courseResult;
   } catch (err) {
+    console.log(err);
     throw err;
   }
 };
@@ -120,6 +123,7 @@ const removeCourseTransaction = async (courseId, studentId, session) => {
       .exec();
     return studentResult;
   } catch (err) {
+    console.log(err);
     throw err;
   }
 };

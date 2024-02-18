@@ -1,9 +1,8 @@
 import "./CourseSelection.styles.css";
 import CourseList from "../../components/CourseList/CourseList.components";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { enrollToClass, fetchCourses } from "../../../query/AxiosRequests";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { fetchCourses } from "../../../query/AxiosRequests";
 import { useStudentGet } from "../../../query/useStudentGet";
-import useEnroll from "../../../query/useEnroll";
 import StudentSelect from "../../components/StudentSelect/StudentSelect.component";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
@@ -17,20 +16,11 @@ const CourseSelection = () => {
     queryFn: fetchCourses,
   });
   const [students] = useStudentGet();
-  const { mutateAsync: enroll } = useEnroll;
   const [currentStudentId, setStudentId] = useContext(StudentIdContext);
 
-  const handleEnroll = async (courseId, studentId) => {
-    try {
-      await enroll(courseId, studentId);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const handleCourseSelect = (courseId) => {
-    if (currentStudentId !== null) {
-      navigate(`${courseId}`);
+    if (currentStudentId !== null && currentStudentId !== -1) {
+      navigate(`info/${courseId}/${currentStudentId}`);
     } else {
       alert("Please select a student");
     }
@@ -55,6 +45,7 @@ const CourseSelection = () => {
       <StudentSelect
         students={students}
         handleSelect={setStudentId}
+        selected={currentStudentId}
       ></StudentSelect>
       <CourseList
         courses={courses.data}
