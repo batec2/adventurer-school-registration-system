@@ -1,4 +1,4 @@
-# Adventurer Registration App
+# Front-End
 
 ## Installation
 

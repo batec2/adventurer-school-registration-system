@@ -1,5 +1,9 @@
 # Adventurer Registration App
 
+## Deployed Page Link
+
+<a>https://batec2.github.io/adventurer-school-registration-system/</a>
+
 ## Installation
 
 ```
@@ -12,6 +16,13 @@ npm run dev
 cd front-end
 npm i
 npm run dev
+```
+
+```
+- Create database
+- Create collections named courses and students in mongodb
+Import data from dataset\courses.json and dataset\students.json
+into mondodb using compass or mongosh
 ```
 
 ## .env
@@ -37,14 +48,21 @@ DB_PASS="Your Pass Word"
 ### Frontend:
 
 - React w/ github pages
+- Axios to send requests
 
 ### Backend:
 
 - Nodejs w/ render
+- Mongoose to query the database
 
 ### Database:
 
-- MongoDb w/ mongoose
+- MongoDb w/ atlas
+
+### Connections
+
+Front-end sends axios requests to the Nodejs api to get data, the backend then sends a query to through mongoose
+the database where depending on the result, it will send a response back to the front-end.
 
 ## Database Schema
 
@@ -86,3 +104,9 @@ Students:
   ],
 }
 ```
+
+## Links to assets used
+
+<a href="https://world-of-babel.fandom.com/wiki/Etera%27s_Adventuring_Guild?file=Guild.jpg">Background</a>
+<a href="https://inkarnate.com/m/VXK2EO--quest-board/">List Background</a>
+<a href="https://www.fontspace.com/shine-typewriter-font-f86822">Font</a>
