@@ -48,7 +48,8 @@ DB_PASS="Your Pass Word"
 ### Frontend:
 
 - React w/ github pages
-- Axios to send requests
+- Axios + React Query to send requests
+- React Router to move between pages
 
 ### Backend:
 
@@ -107,6 +108,6 @@ Students:
 
 ## Links to assets used
 
-<a href="https://world-of-babel.fandom.com/wiki/Etera%27s_Adventuring_Guild?file=Guild.jpg">Background</a>
-<a href="https://inkarnate.com/m/VXK2EO--quest-board/">List Background</a>
-<a href="https://www.fontspace.com/shine-typewriter-font-f86822">Font</a>
+- <a href="https://world-of-babel.fandom.com/wiki/Etera%27s_Adventuring_Guild?file=Guild.jpg">Background</a>
+- <a href="https://inkarnate.com/m/VXK2EO--quest-board/">List Background</a>
+- <a href="https://www.fontspace.com/shine-typewriter-font-f86822">Font</a>
