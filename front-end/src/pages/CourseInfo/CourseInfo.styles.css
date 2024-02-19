@@ -1,0 +1,16 @@
+.infoContainer {
+  width: 1280px;
+  background-image: url("../../assets/vintage-grunge-paper-background.jpg");
+  background-position: center;
+  padding: 10px;
+  color: black;
+  border: solid #ca8f107a 10px;
+  border-radius: 10px;
+}
+
+.infoPageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

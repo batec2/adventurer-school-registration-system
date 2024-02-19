@@ -6,6 +6,6 @@ import {
 
 const router = express.Router();
 router.patch("/:courseid", enrollToCourse);
-router.delete("/:courseid", unenrollFromCourse);
+router.patch("/remove/:courseid", unenrollFromCourse);
 
 export default router;

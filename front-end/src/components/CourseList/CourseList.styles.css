@@ -1,10 +1,18 @@
 .courseListContainer {
+  background-image: url("../../assets/97aFPHAKk5joziR9R4mk6j.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-image: 1280px;
   display: flex;
   padding: 5px;
-  border: #9b0ca588 solid 5px;
+  margin: 5px;
+  border: #a7600ef8 solid 5px;
+  border-radius: 5px;
   background-color: #00000088;
   list-style-type: none;
   flex-wrap: wrap;
   overflow: hidden;
   justify-content: center;
+  max-width: 1280px;
 }

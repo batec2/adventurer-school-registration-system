@@ -1,17 +1,20 @@
 .courseContainer {
+  color: rgb(36, 30, 30);
   display: flex;
   flex-direction: column;
-  background-color: #0000005d;
-  border: rebeccapurple solid 1px;
+  background-color: #91744f;
+  border-radius: 1px;
   width: 200px;
   height: 200px;
   border-radius: 10px;
   padding: 10px;
   margin: 5px;
+  justify-content: space-evenly;
 }
 
 .courseContainer:hover {
-  background-color: #9696967c;
+  /* background-color: #9696967c; */
+  box-shadow: 0 0 20px #000000;
 }
 
 .courseItemsContainer {

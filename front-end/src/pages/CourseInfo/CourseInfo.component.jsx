@@ -1,11 +1,14 @@
+import "./CourseInfo.styles.css";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import { fetchOneCourse } from "../../../query/AxiosRequests";
+import { fetchOneCourse } from "../../query/AxiosRequests";
 import EnrollButton from "../../components/EnrollButton/EnrollButton.component";
-import useEnroll from "../../../query/useEnroll";
+import useEnroll from "../../query/useEnroll";
+import useUnenroll from "../../query/useUnenroll";
 const CourseInfo = () => {
   const { courseId, studentId } = useParams();
-  const { mutateAsync } = useEnroll();
+  const { mutateAsync: enroll } = useEnroll();
+  const { mutateAsync: unenroll } = useUnenroll();
   const { data, isError, isPending, error } = useQuery({
     queryKey: [courseId],
     queryFn: fetchOneCourse,
@@ -39,7 +42,15 @@ const CourseInfo = () => {
 
   const handleEnroll = async () => {
     try {
-      await mutateAsync({ courseId: courseId, studentId: studentId });
+      await enroll({ courseId: courseId, studentId: studentId });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUnenroll = async () => {
+    try {
+      await unenroll({ courseId: courseId, studentId: studentId });
     } catch (err) {
       console.log(err);
     }
@@ -56,17 +67,20 @@ const CourseInfo = () => {
   };
 
   return (
-    <div>
-      <h1>{`${courseSymbol} ${courseNumber}`}</h1>
-      <h2>{`${courseName}`}</h2>
-      <p>{`${description}`}</p>
-      <p>{`${startTime}`}</p>
-      <p>{`${teacher}`}</p>
-      <p>{`${capacity}`}</p>
-      <EnrollButton
-        status={findStatus()}
-        handleEnroll={handleEnroll}
-      ></EnrollButton>
+    <div className="infoPageContainer">
+      <div className="infoContainer">
+        <h1>{`${courseSymbol} ${courseNumber}`}</h1>
+        <h2>{`${courseName}`}</h2>
+        <p>{`${description}`}</p>
+        <p>{`${startTime}`}</p>
+        <p>{`${teacher}`}</p>
+        <p>{`${capacity}`}</p>
+        <EnrollButton
+          status={findStatus()}
+          handleEnroll={handleEnroll}
+          handleUnenroll={handleUnenroll}
+        ></EnrollButton>
+      </div>
     </div>
   );
 };
