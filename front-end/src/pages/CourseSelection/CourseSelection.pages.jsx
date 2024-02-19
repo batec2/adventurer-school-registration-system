@@ -7,6 +7,7 @@ import StudentSelect from "../../components/StudentSelect/StudentSelect.componen
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import StudentIdContext from "../../context/StudentIdContext";
+import { toast } from "react-toastify";
 
 const CourseSelection = () => {
   const queryClient = useQueryClient();
@@ -22,7 +23,9 @@ const CourseSelection = () => {
     if (currentStudentId !== null && currentStudentId !== -1) {
       navigate(`info/${courseId}/${currentStudentId}`);
     } else {
-      alert("Please select a student");
+      toast("Please Select Student", {
+        toastId: "selectStudent",
+      });
     }
   };
 
@@ -44,7 +47,6 @@ const CourseSelection = () => {
       <div className="titleContainer">
         <h1 className="title">ADVENTURER TRAINING CAMP</h1>
       </div>
-      <h1>{currentStudentId ? currentStudentId : ""}</h1>
       <StudentSelect
         students={students}
         handleSelect={setStudentId}

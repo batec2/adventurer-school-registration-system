@@ -5,6 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import CourseSelection from "./pages/CourseSelection/CourseSelection.pages";
 import "./App.css";
 import CourseInfo from "./pages/CourseInfo/CourseInfo.component";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,12 +24,14 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <StudentIdContext.Provider value={studentId}>
           <Routes>
-            <Route path="/courses/" element={<CourseSelection />}></Route>
+            <Route path="/" element={<CourseSelection />}></Route>
+            {/* <Route path="/courses/" element={<CourseSelection />}></Route> */}
             <Route
-              path="/courses/info/:courseId/:studentId"
+              path="/info/:courseId/:studentId"
               element={<CourseInfo />}
             ></Route>
           </Routes>
+          <ToastContainer></ToastContainer>
         </StudentIdContext.Provider>
       </QueryClientProvider>
     </BrowserRouter>

@@ -18,6 +18,14 @@
 }
 
 .courseItemsContainer {
-  justify-content: center;
   display: flex;
+  justify-content: center;
+}
+
+.courseInformation {
+  display: flex;
+  flex-direction: column;
+}
+
+.statusInformation {
 }

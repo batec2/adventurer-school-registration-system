@@ -8,7 +8,9 @@ const StudentSelect = ({ students, handleSelect, selected }) => {
       value={selected === null ? -1 : selected}
     >
       <optgroup>
-        <option value={-1}>select student</option>
+        <option value={-1} disabled="disabled">
+          select student
+        </option>
         {students.map((student) => (
           <option
             key={student._id}

@@ -8,7 +8,8 @@
 
 .titleContainer {
   color: black;
-  background-color: blanchedalmond;
+  background-color: rgba(241, 178, 82, 0.747);
   padding: 10px;
-  border: solid chocolate;
+  border: solid rgba(210, 105, 30, 0.719);
+  border-radius: 20px;
 }

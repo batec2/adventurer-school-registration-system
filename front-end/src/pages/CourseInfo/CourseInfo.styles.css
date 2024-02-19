@@ -1,11 +1,17 @@
 .infoContainer {
-  width: 1280px;
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  max-width: 100%;
   background-image: url("../../assets/vintage-grunge-paper-background.jpg");
   background-position: center;
   padding: 10px;
   color: black;
   border: solid #ca8f107a 10px;
   border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  text-overflow: wrap;
 }
 
 .infoPageContainer {

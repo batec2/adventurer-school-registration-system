@@ -38,6 +38,7 @@ const CourseInfo = () => {
     teacher,
     capacity,
     students,
+    department,
   } = data;
 
   const handleEnroll = async () => {
@@ -66,15 +67,32 @@ const CourseInfo = () => {
     return "closed";
   };
 
+  const getTime = () => {
+    const time = startTime / 60;
+    if (time <= 11) {
+      return `${time} AM`;
+    } else if (time === 12) {
+      return `${time} PM`;
+    } else {
+      return `${time - 12} PM`;
+    }
+  };
+
   return (
     <div className="infoPageContainer">
       <div className="infoContainer">
         <h1>{`${courseSymbol} ${courseNumber}`}</h1>
         <h2>{`${courseName}`}</h2>
-        <p>{`${description}`}</p>
-        <p>{`${startTime}`}</p>
-        <p>{`${teacher}`}</p>
-        <p>{`${capacity}`}</p>
+        <h3>Description:</h3>
+        <h4>{`${description}`}</h4>
+        <h3>Department:</h3>
+        <h4>{`${department}`}</h4>
+        <h3>Start Time:</h3>
+        <h4>{getTime()}</h4>
+        <h3>Teacher:</h3>
+        <h4>{`${teacher.firstName} ${teacher.lastName}`}</h4>
+        <h3>Capacity:</h3>
+        <h4>{`${capacity}`}</h4>
         <EnrollButton
           status={findStatus()}
           handleEnroll={handleEnroll}
