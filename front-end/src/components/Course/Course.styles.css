@@ -3,10 +3,35 @@
   display: flex;
   flex-direction: column;
   background-color: #91744f;
-  border-radius: 1px;
+  border-radius: 10px;
   width: 200px;
   height: 200px;
+  padding: 10px;
+  margin: 5px;
+  justify-content: space-evenly;
+}
+
+.courseContainerFull {
+  color: rgb(36, 30, 30);
+  display: flex;
+  flex-direction: column;
+  background-color: #bb251ad7;
   border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  margin: 5px;
+  justify-content: space-evenly;
+}
+
+.courseContainerEnrolled {
+  color: rgb(36, 30, 30);
+  display: flex;
+  flex-direction: column;
+  background-color: #afca17;
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
   padding: 10px;
   margin: 5px;
   justify-content: space-evenly;
@@ -25,7 +50,4 @@
 .courseInformation {
   display: flex;
   flex-direction: column;
-}
-
-.statusInformation {
 }

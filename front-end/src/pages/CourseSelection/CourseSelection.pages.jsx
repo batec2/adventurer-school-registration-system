@@ -19,6 +19,10 @@ const CourseSelection = () => {
   const [students] = useStudentGet();
   const [currentStudentId, setStudentId] = useContext(StudentIdContext);
 
+  /**
+   * Navigates to CourseInfo page on select
+   * @param {*} courseId
+   */
   const handleCourseSelect = (courseId) => {
     if (currentStudentId !== null && currentStudentId !== -1) {
       navigate(`info/${courseId}/${currentStudentId}`);
@@ -29,16 +33,19 @@ const CourseSelection = () => {
     }
   };
 
+  /**
+   * different messages depending on data state
+   */
   if (courses.isPending) {
     return (
       <div>
-        <p>IM LOADING BRO</p>
+        <p>Loading</p>
       </div>
     );
   } else if (courses.isError) {
     return (
       <div>
-        <p>I Got a error Bro</p>
+        <p>Recieved and error</p>
       </div>
     );
   }

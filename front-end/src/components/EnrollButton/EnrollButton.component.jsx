@@ -1,4 +1,5 @@
 import "./EnrollButton.styles.css";
+import { toast } from "react-toastify";
 
 const EnrollButton = ({ status, handleEnroll, handleUnenroll }) => {
   if (status === "enrolled") {
@@ -17,7 +18,11 @@ const EnrollButton = ({ status, handleEnroll, handleUnenroll }) => {
   return (
     <button
       className="EnrollButton"
-      onClick={() => alert("this class is full!!!")}
+      onClick={() => {
+        toast("Class Is Full", {
+          toastId: "ClassFull",
+        });
+      }}
     >
       Full
     </button>

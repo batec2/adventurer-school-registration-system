@@ -11,15 +11,21 @@ const Course = ({ courseInfo, studentId, handleCourseSelect }) => {
     startTime,
   } = courseInfo;
 
-  const checkEnrolled = () => {
-    if (students.includes(studentId)) {
-      return "Enrolled";
-    } else if (students.length < capacity) {
-      return "Open";
-    }
-    return "Full";
-  };
+  let courseCss = "courseContainerFull";
+  let buttonText = "Full";
 
+  if (students.includes(studentId)) {
+    courseCss = "courseContainerEnrolled";
+    buttonText = "Enrolled";
+  } else if (students.length < capacity) {
+    courseCss = "courseContainer";
+    buttonText = "Open";
+  }
+
+  /**
+   * Converts time to hours
+   * @returns time string
+   */
   const getTime = () => {
     const time = startTime / 60;
     if (time <= 11) {
@@ -32,14 +38,14 @@ const Course = ({ courseInfo, studentId, handleCourseSelect }) => {
   };
 
   return (
-    <div className="courseContainer" onClick={(e) => handleCourseSelect(_id)}>
+    <div className={courseCss} onClick={(e) => handleCourseSelect(_id)}>
       <div className="courseInformation">
         <h2>{`${courseSymbol} ${courseNumber}`}</h2>
         <p>{courseName}</p>
         <p>{getTime()}</p>
       </div>
       <div className="statusInformation">
-        <h3>{checkEnrolled()}</h3>
+        <h3>{buttonText}</h3>
       </div>
     </div>
   );

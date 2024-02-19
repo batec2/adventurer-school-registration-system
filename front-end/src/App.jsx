@@ -24,10 +24,13 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <StudentIdContext.Provider value={studentId}>
           <Routes>
-            <Route path="/" element={<CourseSelection />}></Route>
+            <Route
+              path="adventurer-school-registration-system/"
+              element={<CourseSelection />}
+            ></Route>
             {/* <Route path="/courses/" element={<CourseSelection />}></Route> */}
             <Route
-              path="/info/:courseId/:studentId"
+              path="adventurer-school-registration-system/info/:courseId/:studentId"
               element={<CourseInfo />}
             ></Route>
           </Routes>

@@ -5,7 +5,7 @@ const router = express.Router();
 router.get("/", getCourses);
 router.get("/:id", getOneCourse);
 
-router.delete("/delete/:courseid");
+// router.delete("/delete/:courseid");
 // router.post("/");
 // router.delete("/");
 

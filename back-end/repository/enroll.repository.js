@@ -3,11 +3,18 @@ import Student from "../model/students.model.js";
 import mongoose from "mongoose";
 
 /**
- *
+ * Verifies if course and student exists, there are no time conflics, the items
+ * The items arent already in the list, if the course still has room
  * @param {*} courseId
  * @param {*} studentId
  * @param {*} session
- * @returns
+ * @returns {
+ * exists: false,
+ * hasCourse: false,
+ * hasStudent: false,
+ * underCapacity:true,
+ * noConflicts: false,
+ * };
  */
 const verifyEnrollToCourse = async (courseId, studentId, session) => {
   try {
@@ -45,7 +52,7 @@ const verifyEnrollToCourse = async (courseId, studentId, session) => {
 };
 
 /**
- *
+ * Transaction to add a student to a courses
  * @param {*} courseId
  * @param {*} studentId
  * @param {*} session
@@ -69,7 +76,7 @@ const addStudentTransaction = async (courseId, studentId, session) => {
 };
 
 /**
- *
+ * Transaction to add a course to a students
  * @param {*} courseId
  * @param {*} studentId
  * @param {*} session
@@ -92,6 +99,13 @@ const addCourseTransaction = async (courseId, studentId, session) => {
   }
 };
 
+/**
+ * Transaction to remove a student from a courses
+ * @param {*} courseId
+ * @param {*} studentId
+ * @param {*} session
+ * @returns
+ */
 const removeStudentTransaction = async (courseId, studentId, session) => {
   try {
     const courseResult = await Course.findOneAndUpdate(
@@ -110,6 +124,13 @@ const removeStudentTransaction = async (courseId, studentId, session) => {
   }
 };
 
+/**
+ * Transaction to remove a course from a student
+ * @param {*} courseId
+ * @param {*} studentId
+ * @param {*} session
+ * @returns
+ */
 const removeCourseTransaction = async (courseId, studentId, session) => {
   try {
     const studentResult = await Student.findOneAndUpdate(
@@ -129,7 +150,8 @@ const removeCourseTransaction = async (courseId, studentId, session) => {
 };
 
 /**
- *
+ * Adds a course and student to the respective documents in the table
+ * on failiure of either it will roll back
  * @param {*} id
  * @param {ref:'student'} student
  * @returns
@@ -139,30 +161,44 @@ export const enrollToCourseRepository = async (courseId, studentId) => {
   //Transaction to roll back if adding to either document fails
   //Sidenote: mongoose documentation for this is dog water
   const result = await connection.transaction(async (session) => {
-    const { exists, hasCourse, hasStudent, underCapacity, noConflicts } =
-      await verifyEnrollToCourse(courseId, studentId);
+    const verify = await verifyEnrollToCourse(courseId, studentId);
     let courseResult;
     let studentResult;
-    if (exists && !hasCourse && !hasStudent && underCapacity && noConflicts) {
+    if (
+      verify.exists &&
+      !verify.hasCourse &&
+      !verify.hasStudent &&
+      verify.underCapacity &&
+      verify.noConflicts
+    ) {
       courseResult = await addCourseTransaction(courseId, studentId, session);
       studentResult = await addStudentTransaction(courseId, studentId, session);
     }
-    return { courseResult: courseResult, studentResult: studentResult };
+    return {
+      courseResult: courseResult,
+      studentResult: studentResult,
+      result: verify,
+    };
   });
   return result;
 };
 
+/**
+ * Removes a course and student from the respective documents
+ * rolls back on failure of either query
+ * @param {*} courseId
+ * @param {*} studentId
+ * @returns
+ */
 export const unenrollFromCourseRepository = async (courseId, studentId) => {
   const connection = mongoose.connection;
   //Transaction to roll back if adding to either document fails
   const result = await connection.transaction(async (session) => {
-    const { exists, hasCourse, hasStudent } = await verifyEnrollToCourse(
-      courseId,
-      studentId
-    );
+    const verify = await verifyEnrollToCourse(courseId, studentId);
     let courseResult;
     let studentResult;
-    if (exists && hasCourse && hasStudent) {
+    //checks if entries exists first
+    if (verify.exists && verify.hasCourse && verify.hasStudent) {
       courseResult = await removeCourseTransaction(
         courseId,
         studentId,
@@ -174,7 +210,11 @@ export const unenrollFromCourseRepository = async (courseId, studentId) => {
         session
       );
     }
-    return { courseResult: courseResult, studentResult: studentResult };
+    return {
+      courseResult: courseResult,
+      studentResult: studentResult,
+      result: verify,
+    };
   });
   return result;
 };
