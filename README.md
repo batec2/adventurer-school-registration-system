@@ -4,6 +4,9 @@
 
 <a>https://batec2.github.io/adventurer-school-registration-system/</a>
 
+<img src="./README-Images/frontpage.png" width="500">
+<img src="./README-Images/course.png" width="500">
+
 ## Installation
 
 ```

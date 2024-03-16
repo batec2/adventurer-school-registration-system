@@ -38,14 +38,16 @@ const CourseSelection = () => {
    */
   if (courses.isPending) {
     return (
-      <div>
+      <div className="titleContainer">
         <p>Loading</p>
+        <p>Server can take upwards of 90 seconds to spin up</p>
       </div>
     );
   } else if (courses.isError) {
     return (
-      <div>
-        <p>Recieved and error</p>
+      <div className="titleContainer">
+        <p>Recieved an error</p>
+        <p>Server maybe suspended</p>
       </div>
     );
   }

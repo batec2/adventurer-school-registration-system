@@ -1,24 +1,15 @@
 import mongoose from "mongoose";
 
-const CourseSchema = new mongoose.Schema({
-  courseSymbol: { type: String, required: true },
-  courseNumber: { type: String, required: true },
-  startTime: Number,
-  Department: String,
-  description: String,
-  teacher: {
-    firstName: String,
-    lastName: String,
-  },
-  capacity: Number,
-  students: [
+const PlayerSchema = new mongoose.Schema({
+  _id: { type: String },
+  games: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "students",
+      ref: "games",
     },
   ],
 });
 
-const Course = mongoose.model("courses", CourseSchema);
+const Players = mongoose.model("players", PlayerSchema);
 
-export default Course;
+export default Players;
